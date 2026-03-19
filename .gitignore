@@ -1,24 +1,67 @@
-# Compiled class file
+# ============================================================
+# LTI ATS — .gitignore
+# ============================================================
+
+# ── OS & editors ─────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ── Backend (Java / Maven) ────────────────────────────────────
+lti-ats/backend/target/
+lti-ats/backend/.tools/
+
+# Maven wrapper JAR (regenerable, no subir binarios)
+lti-ats/backend/.mvn/wrapper/maven-wrapper.jar
+
+# Spring Boot overrides locales
+lti-ats/backend/src/main/resources/application-local.yml
+
+# Java compilado
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# ── Frontend (Node / Vite) ────────────────────────────────────
+lti-ats/frontend/node_modules/
+lti-ats/frontend/dist/
+lti-ats/frontend/.vite/
+
+# Variables de entorno
+lti-ats/frontend/.env
+lti-ats/frontend/.env.local
+lti-ats/frontend/.env.*.local
+
+# Caché
+lti-ats/frontend/.eslintcache
+lti-ats/frontend/.stylelintcache
+
+# ── Docker ────────────────────────────────────────────────────
+# Se sube docker-compose.yml; se ignoran overrides con secretos locales
+docker-compose.override.yml
+docker-compose.local.yml
+
+# ── Logs ──────────────────────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

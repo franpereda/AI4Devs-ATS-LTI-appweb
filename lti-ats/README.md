@@ -57,12 +57,31 @@ docker-compose ps
 
 ### Step 2 — Start the Backend
 
-Open a new terminal, navigate to the `backend/` directory, and run:
+#### Option A — Using the provided PowerShell script (Maven auto-download, no install needed)
 
-```bash
+Only Java 21 is required. If Java is not installed yet:
+
+```powershell
+winget install EclipseAdoptium.Temurin.21.JDK --accept-package-agreements --accept-source-agreements
+```
+
+Then close and reopen PowerShell, and run:
+
+```powershell
+cd backend
+.\run-backend.ps1
+```
+
+The script downloads Maven 3.9.9 into `backend/.tools/` automatically on first run (internet connection required).
+
+#### Option B — Using Maven if already installed
+
+```powershell
 cd backend
 mvn spring-boot:run
 ```
+
+---
 
 The API starts on **http://localhost:8080**.
 
@@ -70,7 +89,7 @@ Hibernate will automatically create the `job_positions` table on first start (`d
 
 Verify the API is up:
 
-```bash
+```powershell
 curl http://localhost:8080/api/v1/jobs
 ```
 
